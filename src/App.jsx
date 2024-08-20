@@ -46,7 +46,7 @@ const App = () => {
     <div className="min-h-screen flex items-center homepage flex-col">
 
       <div className="agro-logo">
-        <img src="agro logo.png" alt="logo"/>
+        <img src="/agro logo.png" alt="logo"/>
 
       </div>
 
