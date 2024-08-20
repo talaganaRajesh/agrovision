@@ -20,7 +20,7 @@ html{
 }
 
 .homepage{
-  background-image: url("./agro home bg.jpg");
+  background-image: url("/agro home bg.jpg");
   background-size: 40rem;
   background-repeat:repeat;
 }
