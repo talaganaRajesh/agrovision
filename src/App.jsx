@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./App.css"; // For custom CSS
 
+import logo from '/agro logo.png';
+
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -46,7 +48,7 @@ const App = () => {
     <div className="min-h-screen flex items-center homepage flex-col">
 
       <div className="agro-logo">
-        <img src="/agro logo.png" alt="logo"/>
+        <img src={logo} alt="logo"/>
 
       </div>
 
