@@ -15,12 +15,43 @@ const App = () => {
   // Function to handle running the AI model
   const handleRunModel = () => {
     console.log("AI Model running...");
-    alert("AI Model has been triggered.");
+    // alert("AI Model has been triggered.");
+    const result = document.getElementById("result");
+    result.style.display = "flex";
+    location.href='./#result'
+
+
+    const text = "Here you will get the result of your crops disease in a detailed context . so run the ai model by uploading your crops image in above section and hit the Find disease button .";
+    const typingSpeed = 30;
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            document.getElementById("typedText").innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, typingSpeed);
+        } else {
+            document.getElementById("typedText").style.animation = "none"; // Stop caret blinking after text is complete
+        }
+    }
+
+    typeWriter();
+
+
+
+
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center homepage">
-      <div className="grid grid-cols-2 gap-10 p-10 rounded-xl shadow-xl w-3/4 container">
+    <div className="min-h-screen flex items-center homepage flex-col">
+
+      <div className="agro-logo">
+        <img src="agro logo.png" alt="logo"/>
+
+      </div>
+
+
+      <div className="grid grid-cols-2 gap-10 p-10 rounded-xl shadow-xl w-3/4 container justify-center">
         
         {/* Left Column: Image Upload */}
         <div className="left-column flex flex-col items-center">
@@ -47,15 +78,19 @@ const App = () => {
           <h1 className="text-4xl font-bold mb-5">Upload image of crops on the left side</h1>
           <h2 className="text-lg font-bold mb-20 ">please upload high quality images of crops for better results in detection of the disease</h2>
           <button 
-            onClick={handleRunModel} 
+            onClick={handleRunModel}
             className="button">
             Find disease
           </button>
         </div>
       </div>
 
-      <div className="result">
-        
+      <div className="p-10 rounded-xl shadow-xl w-3/4 m-10 flex justify-center items-center flex-col" id="result">
+            <h1 className="text-4xl font-bold mb-5">Result</h1>
+            <h2 className="text-xl font-bold text-white m-5 typing " id="typedText">
+              {/* Here you will get the result of your crops disease in a detailed context . so run the ai model by uploading your crops image in above section and hit the Find disease button . */}
+            </h2>
+            
       </div>
 
 

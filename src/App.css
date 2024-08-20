@@ -1,3 +1,17 @@
+html{
+  scroll-behavior: smooth;
+}
+
+
+.agro-logo{
+  margin-bottom: 50px;
+  width: 12rem;
+  cursor: pointer;
+  margin-top: 80px;
+}
+
+
+
 .uploaded-image {
   object-fit:fill;
   width: 100%;
@@ -6,7 +20,9 @@
 }
 
 .homepage{
-  background: linear-gradient(rgb(0, 0, 0) , #1a0115);
+  background-image: url("agro home bg.jpg");
+  background-size: 40rem;
+  background-repeat:repeat;
 }
 
 .container{
@@ -53,4 +69,45 @@
   background: linear-gradient(90deg, #4e0182 10%, #6f0dcb 90%);
   border: 1px solid #771196;
   box-shadow: #760c97 0px 0px 10px;
+}
+
+
+#result{
+  background: linear-gradient(to right, #2c0434, #68183b, #230742);
+  display:none;
+}
+
+
+/* .typing {
+  overflow: hidden;
+  border-right: 3px solid; 
+  animation: blink-caret 1s step-end infinite;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  display: inline-block; 
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: rgb(255, 255, 255); }
+} */
+
+
+.typing {
+  overflow: hidden;
+  white-space: pre-wrap; /* Allows the text to wrap properly */
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.caret {
+  display: inline;
+  font-weight: bold;
+  animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }
