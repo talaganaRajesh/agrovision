@@ -67,7 +67,7 @@ const App = () => {
       {/* Navbar */}
       
       <nav>
-        <img src="/agro logo.png" alt="logo" />
+      <img src={logo} alt="logo"/>
         <button>
             Log in
         </button>
