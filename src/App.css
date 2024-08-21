@@ -1,102 +1,79 @@
-html{
+html {
   scroll-behavior: smooth;
 }
 
-
-.agro-logo{
+.agro-logo {
   margin-bottom: 50px;
   width: 12rem;
   cursor: pointer;
   margin-top: 80px;
 }
 
-
-
 .uploaded-image {
-  object-fit:fill;
+  object-fit: fill;
   width: 100%;
   height: 100%;
   border-radius: 8px;
 }
 
-.homepage{
-  background-image: url("/agro home bg.jpg");
-  background-size: 40rem;
-  background-repeat:repeat;
-}
-
-.container{
-  /* background: linear-gradient(#290055, rgb(80 2 56)); */
-  background: linear-gradient(to right, #2c0434, #68183b, #230742);
-    /* background-image: url("agrovision/hero-bg-bottom-2.png"),
-                      url("agrovision/hero-bg.png"),
-                      var(--gradient-1);
-
-    
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: -280px bottom, center, center;
-    background-size: auto, cover, auto;
-    padding-block-start: 120px;
-    padding-block-end: var(--section-padding); */
+.homepage {
+  background: linear-gradient(to right, #d5e6da, #e8eeea, #eaffef);
 
 }
 
-.file-upload{
+.container {
+  /* background: linear-gradient(to right, #2c0434, #68183b, #230742); */
+  background: linear-gradient(to right, #000000, #171616, #000000);
+}
+
+.file-upload {
   display: inline-block;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-.file-upload input{
+.file-upload input {
   display: none;
 }
 
-.button{
-    width: 10vw;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 800;
-    border-radius: 5px 15px 5px 15px;
-    background: linear-gradient(90deg, #3a0160 10%, #5f0aaf 90%);
-    border: 1px solid #691084;
-    box-shadow: #5b0974 0px 0px 10px;
-    cursor: pointer;
-    transition: transform 3s ease;
+.button {
+  width: 10vw;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 5px 15px 5px 15px;
+  /* background: linear-gradient(90deg, #3a0160 10%, #5f0aaf 90%);
+  border: 1px solid #691084;
+  box-shadow: #5b0974 0px 0px 10px; */
+
+  background: linear-gradient(90deg, #4a4949 10%, #ffffff 90%);
+  border: 1px solid #ffffff;
+  box-shadow: #272627 0px 0px 10px;
+
+  cursor: pointer;
+  transition: transform 3s ease;
 }
 
-.button:hover{
+.button:hover {
   transform: scale(1.009);
-  background: linear-gradient(90deg, #4e0182 10%, #6f0dcb 90%);
+  /* background: linear-gradient(90deg, #4e0182 10%, #6f0dcb 90%);
   border: 1px solid #771196;
-  box-shadow: #760c97 0px 0px 10px;
+  box-shadow: #760c97 0px 0px 10px; */
+
+  background: linear-gradient(90deg, #252525 10%, #b1b0b0 90%);
+  border: 1px solid #c0c0c0;
+  box-shadow: #434343 0px 0px 10px;
+
 }
 
-
-#result{
-  background: linear-gradient(to right, #2c0434, #68183b, #230742);
-  display:none;
+#result {
+  background: linear-gradient(to right, #000000, #101010, #000000);
+  display: none;
 }
-
-
-/* .typing {
-  overflow: hidden;
-  border-right: 3px solid; 
-  animation: blink-caret 1s step-end infinite;
-  overflow-wrap: break-word; 
-  word-wrap: break-word; 
-  display: inline-block; 
-}
-
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: rgb(255, 255, 255); }
-} */
-
 
 .typing {
   overflow: hidden;
-  white-space: pre-wrap; /* Allows the text to wrap properly */
+  white-space: pre-wrap;
   word-wrap: break-word;
   display: inline-block;
 }
@@ -108,6 +85,94 @@ html{
 }
 
 @keyframes blink-caret {
-  from, to { opacity: 1; }
-  50% { opacity: 0; }
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+
+
+
+
+/*------------------------- media queries---------------------------------------------------------------------------------------------- */
+
+
+/* 
+@media only screen and (max-width: 320px){
+  nav img{
+    width: 1rem;
+    cursor: pointer;
+  }
+
+
+
+  nav{
+    background-color: #000000;
+  }
+
+  nav button{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    margin-left: 1rem;
+    border-radius: 20px;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .right-column h1{
+    font-size: 11rem;
+  }
+  .right-column h2{
+    font-size: 0.5rem;
+  }
+
+  .container{
+    background-color: red;
+  }
+
+  .homepage{
+    background: linear-gradient(to right, #000000, #171616, #000000);
+  }
+  #result{
+    background: linear-gradient(to right, #080808, #171616, #020202);
+  }
+
+} */
+
+
+/* navbar */
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 4rem 2rem;
+  width: 100%;
+  z-index: 100;
+}
+
+nav img{
+  width: 10rem;
+  cursor: pointer;
+}
+
+nav button{
+  color: white;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  border-radius: 20px;
+  width: 6rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
 }
