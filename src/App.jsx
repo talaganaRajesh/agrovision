@@ -1,15 +1,15 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import "./App.css"; // Import custom CSS if needed
 
-
-import {  Navbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem} from "@nextui-org/navbar";
 
 
 import logo from '/agro logo black 2.png';
 
 const App = () => {
+
   const [selectedImage, setSelectedImage] = useState(null);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModelRun, setIsModelRun] = useState(false); // Track if the model has been run
 
 
   // Function to handle image selection
@@ -17,44 +17,75 @@ const App = () => {
     const file = e.target.files[0];
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
+      setIsModelRun(false); // Reset the model run state when a new image is selected
     }
   };
 
 
-  // Function to toggle the dropdown menu with animation
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  
 
 
   // Function to handle running the AI model
   const handleRunModel = () => {
-    console.log("AI Model running...");
-    const result = document.getElementById("result");
-    result.style.display = "flex";
-    location.href='./#final'
-
-    const text = "Here you will get the result of your crops disease in a detailed context . so run the ai model by uploading your crops image in above section and hit the Find disease button .\n \n For team members :- Our ai predictions will be shown here , after integrating the python model  . \n \n \n Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context .";
-    const typingSpeed = 20;
-    let index = 0;
-
-    function typeWriter() {
-        if (index < text.length) {
-            document.getElementById("typedText").innerHTML += text.charAt(index);
-            index++;
-
-            // Scroll the window smoothly as the text is being written
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-
-
-            setTimeout(typeWriter, typingSpeed);
-        } else {
-            document.getElementById("typedText").style.animation = "none"; // Stop caret blinking after text is complete
-        }
+    if (!selectedImage) {
+      alert("Please select an image first!");
+      return;
     }
 
-    typeWriter();
+    if (isModelRun) {
+      return; // Prevent the function from running again for the same image
+    }
+
+    console.log("AI Model running...");
+      const result = document.getElementById("result");
+      result.style.display = "flex";
+      location.href='./#final'
+
+      const text = "Here you will get the result of your crops disease in a detailed context . so run the ai model by uploading your crops image in above section and hit the Find disease button .\n \n For team members :- Our ai predictions will be shown here , after integrating the python model  . \n \n \n Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context .";
+      const typingSpeed = 20;
+      let index = 0;
+
+      function typeWriter() {
+          if (index < text.length) {
+              document.getElementById("typedText").innerHTML += text.charAt(index);
+              index++;
+
+              // Scroll the window smoothly as the text is being written
+              window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+
+              setTimeout(typeWriter, typingSpeed);
+          } else {
+              document.getElementById("typedText").style.animation = "none"; // Stop caret blinking after text is complete
+          }
+      }
+
+      typeWriter();
+
+      setIsModelRun(true); // Set the state to indicate the model has been run for the current image
+
+
   };
+
+
+
+  // useEffect to add the enter keyup event listener only once when the enter key is pressed and image is selected
+  
+  useEffect(() => {
+    const handleKeyUp = (event) => {
+      if (event.key === 'Enter' && selectedImage && !isModelRun) {
+        handleRunModel();
+      }
+    };
+
+    window.addEventListener('keyup', handleKeyUp);
+
+    // Cleanup the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [selectedImage, isModelRun]); 
+
 
   return (
     <div className="min-h-screen flex flex-col items-center homepage">
@@ -82,7 +113,7 @@ const App = () => {
             {selectedImage ? (  
               <img src={selectedImage} alt="Selected" className="object-cover w-full h-full rounded-lg" />
             ) : (
-              <label className="bg-white text-black py-2 px-4 rounded-lg cursor-pointer hover:bg-gray-200">
+              <label className="bg-white text-black py-2 px-4 rounded-lg cursor-pointer hover:bg-gray-200 inputfile">
                 Choose file
                 <input 
                   type="file" 
@@ -107,7 +138,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 flex justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="result">
+      <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="result">
         <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold">Result</h1>
         <h2 className="text-sm md:text-xl font-bold text-white m-5 typing" id="typedText"></h2>
       </div>
