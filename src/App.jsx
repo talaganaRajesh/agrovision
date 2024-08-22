@@ -5,7 +5,7 @@ import "./App.css"; // Import custom CSS if needed
 import {  Navbar,   NavbarBrand,   NavbarContent,   NavbarItem,   NavbarMenuToggle,  NavbarMenu,  NavbarMenuItem} from "@nextui-org/navbar";
 
 
-import logo from '/agro logo.png';
+import logo from '/agro logo black 2.png';
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
