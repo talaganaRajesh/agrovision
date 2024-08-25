@@ -195,7 +195,7 @@ async function runChatbot() {
 
       <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col " id="result">
         <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold">Result</h1>
-        <h2 className="text-sm md:text-xl font-bold text-white m-5 typing" id="typedText"></h2>
+        <h2 className="text-sm md:text-xl font-bold text-white m-5 typing" id="typedText">The disease is : </h2>
       </div>
 
       {/* <textarea 
