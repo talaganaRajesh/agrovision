@@ -128,7 +128,7 @@ const App = () => {
 
         {/* Right Column: Heading and Button */}
         <div className="flex flex-col items-center justify-center text-center right-column">
-          <h1 className="text-2xl md:text-4xl font-bold mb-5 text-white flex flex-row"><span><img src="pagelines-brands-solid.jpg" alt="leaf" srcset="" className="size-9 align-middle " /></span>Upload image of crops on the left side</h1>
+          <h1 className="text-2xl md:text-4xl font-bold mb-5 text-white flex flex-row"><span><img src="./pagelines-brands-solid.jpg" alt="leaf" srcset="" className="size-9 align-middle " /></span>Upload image of crops on the left side</h1>
           <h2 className="text-sm md:text-lg font-bold mb-10 text-gray-400">Please upload high quality images of crops for better results in detection of the disease</h2>
           <button 
             onClick={handleRunModel}
