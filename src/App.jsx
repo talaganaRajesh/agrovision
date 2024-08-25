@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./App.css"; // Import custom CSS if needed
 
-
+import magic from '/magic-wand.png';
 
 import logo from '/agro logo black 2.png';
 import leaf from '/pagelines-brands-solid.png';
+import axios from "axios";
 
 
 const App = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModelRun, setIsModelRun] = useState(false); // Track if the model has been run
+
+  let resultText = "Phytophthora infestans";
+
+  const [answer, setAnswer] = useState("");
+  // const [question, setQuestion] = useState("");
+
+
 
 
   // Function to handle image selection
@@ -41,15 +49,19 @@ const App = () => {
     console.log("AI Model running...");
       const result = document.getElementById("result");
       result.style.display = "flex";
-      location.href='./#final'
 
-      const text = "Here you will get the result of your crops disease in a detailed context . so run the ai model by uploading your crops image in above section and hit the Find disease button .\n \n For team members :- Our ai predictions will be shown here , after integrating the python model  . \n \n \n Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context . Here you will get the result of your crops disease in a detailed context .";
+      const aiButton = document.getElementById("aiButton");
+      aiButton.style.display = "flex";
+
+      location.href='./#result'
+
+      // const resultText = "Phytophthora infestans";
       const typingSpeed = 20;
       let index = 0;
 
       function typeWriter() {
-          if (index < text.length) {
-              document.getElementById("typedText").innerHTML += text.charAt(index);
+          if (index < resultText.length) {
+              document.getElementById("typedText").innerHTML += resultText.charAt(index);
               index++;
 
               // Scroll the window smoothly as the text is being written
@@ -66,6 +78,7 @@ const App = () => {
 
       setIsModelRun(true); // Set the state to indicate the model has been run for the current image
 
+      
 
   };
 
@@ -89,6 +102,46 @@ const App = () => {
   }, [selectedImage, isModelRun]); 
 
 
+
+  // for ai chatbot 
+
+
+async function runChatbot() {
+  
+  let question="suggest how to cure the following disease of crops : "+resultText+" give accurate answers and don't say tha ti can't give answer , try atleast . Don't give lengthy answer , just give a brief summary . don't use * symbol , use plain english";
+  
+  // Use a timeout to ensure the state is updated before the API call
+  setTimeout(async () => {
+    const chatbot = document.getElementById("chatbot");
+    chatbot.style.display = "flex";
+    setAnswer("Loading...");
+    location.href='./#chatbot'
+    
+    try {
+      const response = await axios({
+        url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAjuMa0EvqzY76Fv9vhcVh2CJiRyvQY4sg",
+        method: "POST",
+        data: {
+          contents: [{ parts: [{ text: question }] }],
+        },
+      });
+
+
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
+      setAnswer(response ["data"]["candidates"][0]["content"]["parts"][0]["text"]);
+      
+    } catch (error) {
+      setAnswer("Error fetching response");
+    }
+  }, 100); // Wait 100ms for state to update
+}
+
+  
+  
+  // setAnswer(response ["data"]["candidates"][0]["content"]["parts"][0]["text"]);
+
+
   return (
     <div className="min-h-screen flex flex-col items-center homepage">
 
@@ -99,7 +152,7 @@ const App = () => {
 
       {/* Navbar */}
       
-      <nav>
+      <nav className="md:mb-12">
       <img src={logo} alt="logo"/>
         <button>
             Log in
@@ -140,13 +193,32 @@ const App = () => {
         </div>
       </div>
 
-      <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="result">
+      <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col " id="result">
         <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold">Result</h1>
         <h2 className="text-sm md:text-xl font-bold text-white m-5 typing" id="typedText"></h2>
       </div>
 
-      <div id="final">
-        
+      {/* <textarea 
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        cols={30}
+        rows={10}
+
+      ></textarea> */}
+
+      <button 
+            onClick={runChatbot}
+            className="hidden w-2/3 md:w-1/3 h-12 font-extrabold button flex-row justify-center items-center"
+            id="aiButton" >
+            Ask AI for solution <span><img src="{magic}" alt="" className="size-4" /></span>
+      </button>
+
+      <div className="hidden p-10 mb-20 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="chatbot">
+        <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold flex flex-row">Agrovision AI <span><img src="{magic}" alt="magic" className="size-10" /></span></h1>
+
+       
+
+        <h2 className="text-sm md:text-xl font-bold text-white m-5 typing">{answer}</h2>
       </div>
 
     </div>
