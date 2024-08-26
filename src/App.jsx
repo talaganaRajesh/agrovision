@@ -215,7 +215,7 @@ async function runChatbot() {
       </button>
 
       <div className="hidden p-10 mb-20 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="chatbot">
-        <h1 className="text-2xl md:text-4xl mb-5 text-black font-extrabold flex flex-row gap-6 justify-center items-center">Agrovision AI <span><img src={magic} alt="magic" className="size-8" /></span></h1>
+        <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold flex flex-row">Agrovision AI <span><img src="{magic}" alt="magic" className="size-10" /></span></h1>
 
        
 
