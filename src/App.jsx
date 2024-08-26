@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import "./App.css"; // Import custom CSS if needed
 
-import magic from '/magic-wand.png';
+import magic from '/magic-wand-black.png';
+
 
 import logo from '/agro logo black 2.png';
 import leaf from '/pagelines-brands-solid.png';
@@ -108,7 +109,7 @@ const App = () => {
 
 async function runChatbot() {
   
-  let question="suggest how to cure the following disease of crops : "+resultText+" give accurate answers and don't say tha ti can't give answer , try atleast . Don't give lengthy answer , just give a brief summary . don't use * symbol , use plain english";
+  let question="suggest how to cure the following disease of crops : "+resultText+" give accurate answers and don't say tha ti can't give answer , try atleast . Don't give lengthy answer , just give a brief summary . don't use * symbol instead use 1,2,3... for points and try to answer in a multiple short paragraphs way but not points, use plain english";
   
   // Use a timeout to ensure the state is updated before the API call
   setTimeout(async () => {
@@ -210,11 +211,11 @@ async function runChatbot() {
             onClick={runChatbot}
             className="hidden w-2/3 md:w-1/3 h-12 font-extrabold button flex-row justify-center items-center"
             id="aiButton" >
-            Ask AI for solution <span><img src="{magic}" alt="" className="size-4" /></span>
+            Ask AI for solution <span><img src={magic} alt="" className="size-4" /></span>
       </button>
 
       <div className="hidden p-10 mb-20 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="chatbot">
-        <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold flex flex-row">Agrovision AI <span><img src="{magic}" alt="magic" className="size-10" /></span></h1>
+        <h1 className="text-2xl md:text-4xl mb-5 text-black font-extrabold flex flex-row gap-6 justify-center items-center">Agrovision AI <span><img src={magic} alt="magic" className="size-8" /></span></h1>
 
        
 
