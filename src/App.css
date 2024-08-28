@@ -22,12 +22,14 @@ html {
 }
 
 .container {
-  /* background: linear-gradient(to right, #2c0434, #68183b, #230742); */
   background: linear-gradient(to right, #000000, #171616, #000000);
+  transition: filter 500ms;
+  filter: drop-shadow(0 0 5em #73eb85aa);
+
 }
 
 .container:hover {
-  box-shadow:#79e4b4 0px 4px 10px;
+  filter: drop-shadow(0 0 6em #3dee4faa);
 }
 
 .file-upload {
@@ -56,10 +58,11 @@ html {
 
   cursor: pointer;
   transition: transform 3s ease;
+  transition: filter 300ms;
 }
 
 .button:hover {
-  transform: scale(1.009);
+  /* transform: scale(1.009); */
   /* background: linear-gradient(90deg, #4e0182 10%, #6f0dcb 90%);
   border: 1px solid #771196;
   box-shadow: #760c97 0px 0px 10px; */
@@ -67,6 +70,8 @@ html {
   background: linear-gradient(314deg, #1fe340 10%, #80b322 90%);
   border: 1px solid #6eee29;
   box-shadow: #434343 0px 0px 10px;
+  filter: drop-shadow(0 0 2em #0a9d1caa);
+
 
 }
 
@@ -74,6 +79,12 @@ html {
   background: linear-gradient(to right, #000000, #101010, #000000);
   display: none;
   margin-bottom: 30px;
+  transition: filter 500ms;
+  filter: drop-shadow(0 0 4em #82eb92aa);
+}
+
+#result:hover {
+  filter: drop-shadow(0 0 4em #3dee4faa);
 }
 
 .typing {
@@ -190,10 +201,24 @@ nav button{
   box-shadow: #5bec5b 0px 0px 10px;
   width: 16rem;
   gap: 10px;
+  transition: filter 300ms;
+  
 }
 
 #aiButton:hover {
   background: linear-gradient(314deg, #1fe340 10%, #80b322 90%);
   border: none;
   box-shadow: #82db99 0px 0px 10px;
+  filter: drop-shadow(0 0 2em #a980e5aa);
+
+}
+
+
+#chatbot {
+  transition: filter 500ms;
+  filter: drop-shadow(0 0 5em #c777ecaa);
+}
+
+#chatbot:hover {
+  filter: drop-shadow(0 0 5em #eb80c9aa);
 }
