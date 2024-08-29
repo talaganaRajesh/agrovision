@@ -24,12 +24,12 @@ html {
 .container {
   background: linear-gradient(to right, #000000, #171616, #000000);
   transition: filter 500ms;
-  filter: drop-shadow(0 0 5em #73eb85aa);
+  filter: drop-shadow(0 0 5em #a3f5afaa);
 
 }
 
 .container:hover {
-  filter: drop-shadow(0 0 6em #3dee4faa);
+  filter: drop-shadow(0 0 6em #71eb7daa);
 }
 
 .file-upload {
