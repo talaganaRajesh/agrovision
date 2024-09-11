@@ -86,7 +86,7 @@ const App = () => {
       location.href='./#result'
 
       // const resultText = "Phytophthora infestans";
-      const typingSpeed = 20;
+      const typingSpeed = 80;
       let index = 0;
 
       function typeWriter() {
@@ -239,6 +239,13 @@ async function runChatbot() {
         </div>
       </div>
 
+      <div className="talktoexpert">
+        <button 
+          className="font-extrabold">
+            <img src="headset-solid.png" alt="" />
+        </button>
+      </div>
+
       <div className="hidden p-10 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col " id="result">
         <h1 className="text-2xl md:text-4xl mb-5 text-white font-extrabold">Result</h1>
         <h2 className="text-sm md:text-xl font-bold text-white m-5 typing" id="typedText">The disease is : </h2>
@@ -256,11 +263,11 @@ async function runChatbot() {
             onClick={runChatbot}
             className="hidden w-2/3 md:w-1/3 h-12 font-extrabold button flex-row justify-center items-center"
             id="aiButton" >
-            Ask AI for solution <span><img src={magic} alt="" className="size-4" /></span>
+            Get solution <span><img src={magic} alt="" className="size-4" /></span>
       </button>
 
       <div className="hidden p-10 mb-20 rounded-xl shadow-xl w-full md:w-3/4 mt-10 justify-center items-center flex-col bg-gradient-to-r from-purple-900 to-indigo-900" id="chatbot">
-        <h1 className="text-2xl md:text-4xl mb-5 text-black font-extrabold flex flex-row justify-center items-center gap-5">Agrovision AI <span><img src={magic} alt="magic" className="size-8" /></span></h1>
+        <h1 className="text-2xl md:text-4xl mb-5 text-black font-extrabold flex flex-row justify-center items-center gap-5">Agrovision <span><img src={magic} alt="magic" className="size-8" /></span></h1>
 
        
 
