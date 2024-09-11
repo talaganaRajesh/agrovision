@@ -4,6 +4,7 @@ import "./HomePage.css";
 import logo from '/agro logo black 2.png';
 import leaf from '/pagelines-brands-solid.png';
 import magic from '/magic-wand-black.png';
+import support from '/headset-solid.png';
 
 import axios from "axios";
 
@@ -242,7 +243,7 @@ async function runChatbot() {
       <div className="talktoexpert">
         <button 
           className="font-extrabold">
-            <img src="headset-solid.png" alt="" />
+            <img src={support} alt="" />
         </button>
       </div>
 
