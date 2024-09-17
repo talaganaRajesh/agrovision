@@ -183,6 +183,13 @@ async function runChatbot() {
       <nav className="md:mb-12">
         <img src={logo} alt="logo"/>
 
+        <ul className='flex flex-row gap-20'>
+          <li className='text-gray-700 font-bold'><Link to="/kvk">Neraby KVK</Link></li>
+          <li className='text-gray-700 font-bold'><Link to="/weather">Weather</Link></li>
+          <li className='text-gray-700 font-bold '><Link to="/market">Market</Link></li>
+          <li className='text-gray-700 font-bold '><Link to="/howToUse">How to use</Link></li>
+        </ul>
+
         {user ? (
           <div>
             <button onClick={toggleSidebar} className="sidebar-icon">
